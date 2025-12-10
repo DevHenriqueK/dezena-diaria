@@ -1,0 +1,112 @@
+@import 'tailwindcss';
+
+@keyframes shadow-dance {
+    0% {
+        box-shadow: inset 0 0 4px var(--color-header);
+    }
+
+    50% {
+        box-shadow: inset 0 0 15px var(--color-header);
+    }
+
+    100% {
+        box-shadow: inset 0 0 4px var(--color-header);
+    }
+}
+
+@keyframes border-color-switch {
+    0% {
+        border-color: var(--color-header);
+    }
+
+    50% {
+        border-color: var(--color-desfocated);
+    }
+
+    100% {
+        border-color: var(--color-header);
+    }
+}
+
+* {
+    outline: none;
+}
+
+@font-face {
+    font-family: 'League Spartan';
+    src: url('/fonts/league-spartan/LeagueSpartan-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'Arvo';
+    src: url('/fonts/arvo/Arvo-Regular.ttf');
+}
+
+@theme {
+    --color-body: var(--color-body);
+    --color-header: var(--color-header);
+    --color-selection: var(--color-selection);
+    --color-cards: var(--color-cards);
+    --color-desfocated: var(--color-desfocated);
+}
+
+:root {
+    --card-radius: 16px;
+}
+
+.theme-ember-glow {
+    --color-body: #1A1A1A;
+    --color-header: #E77A3A;
+    --color-selection: #E77A3A;
+    --color-cards: #222;
+    --color-desfocated: #924e26;
+}
+
+.theme-mary-blue {
+    --color-header: #86AEF0;
+    --color-selection: #2D67C5;
+    --color-body: #0A316F;
+    --color-cards: #072452;
+    --color-desfocated: #5276af;
+}
+
+.theme-common-green {
+    --color-header: #56C87D;
+    --color-selection: #1F7D45;
+    --color-body: #0A341E;
+    --color-cards: #052a16;
+    --color-desfocated: #2a8b4c;
+}
+
+.theme-advent-purple {
+    --color-header: #B58AE0;
+    --color-selection: #763DAE;
+    --color-body: #3A1A58;
+    --color-cards: #250d3b;
+    --color-desfocated: #774aa5;
+}
+
+.sans{ --font-family: 'League Spartan'; }
+.serif{ --font-family: 'Arvo' }
+
+body {
+    background-color: var(--color-body);
+    color: #eee;
+    font-family: var(--font-family);
+
+    &::selection { background-color: var(--color-selection); }
+
+    &::-webkit-scrollbar { width: 10px; }
+    &::-webkit-scrollbar-thumb { background-color: var(--color-header); }
+}
+
+select::-webkit-scrollbar{ display: none; }
+
+.mystery-box-highlighted {
+    animation: shadow-dance 1s linear infinite,
+               border-color-switch 1s linear infinite;
+}
+
+.prayer-list::-webkit-scrollbar{ width: 5px; }
+
+.prayer-list::-webkit-scrollbar-thumb{ background-color: var(--color-body); border-radius: 100px; }
